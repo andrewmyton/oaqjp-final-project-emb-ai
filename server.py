@@ -8,8 +8,8 @@ def emote_detector():
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
     
-    if response["dominant_emotion"] == None:
-        return "Invalid text. Please try again!"
+    if response == None:
+        return "Invalid text! Please try again!"
     else:
         output = "For the given statement, the system response is "
         for k,v in response.items():

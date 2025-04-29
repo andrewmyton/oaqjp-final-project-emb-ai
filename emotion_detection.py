@@ -10,10 +10,8 @@ def emotion_detector(text_to_analyse):
     if response.status_code == 200:
         output = formatted_response['emotionPredictions'][0]['emotion']
         output['dominant_emotion'] = max(output, key = output.get)
-        return output  # Return the response text from the API
-    elif response.status_code == 400:
-        output = formatted_response['emotionPredictions'][0]['emotion']
-        output = output.fromkeys(output,None)
-        output['dominant_emotion'] = None
-        return output
     
+    elif response.status_code == 400:
+        output = None
+    
+    return output
